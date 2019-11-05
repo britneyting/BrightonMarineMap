@@ -30,7 +30,12 @@
   <body>
      <div id="mapid"></div>
      <script type="text/javascript" src="us-states.js"></script>
+     <script type="text/javascript" src="mass.js"></script>
+     <!-- <script type="text/javascript" src="data_formatter.js"></script> Alex trying something out  -->
      <script type ="text/javascript">
+      // for (i = 0;i < statesData["features"].length; i++) {
+      //   statesData["features"][i]["density"] = veteran_populations[i]/total_populations[i];
+      // }
       var coordinates = [42.36,-72.05]
       var mymap = L.map('mapid').setView(coordinates, 8);
        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -38,8 +43,7 @@
       	id: 'mapbox.light',
       	accessToken: 'pk.eyJ1Ijoic3Bsb2htYXIiLCJhIjoiY2syaHVxdml5MHpsbzNtbzF1NXE1ZHYxeiJ9.R73K7V9poI3Muj84Wuw_YA'
       }).addTo(mymap);
-      var geojson = L.geoJson(statesData).addTo(mymap);
-
+      var geojson = L.geoJson(outlines).addTo(mymap);
      </script>
   </body>
 </html>
