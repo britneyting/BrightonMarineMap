@@ -16,11 +16,11 @@
   <style>
 		html, body {
 			height: 100%;
-			margin: 0;
+			margin: 10px;
 		}
 		#mapid {
-			width: 800px;
-			height: 600px;
+			width: 100%;
+			height: 100%;
 		}
 	</style>
 
@@ -34,16 +34,18 @@
   <body>
      <div id="mapid"></div>
      <script type="text/javascript" src="us-states.js"></script>
-     <script type="text/javascript" src="mass.js"></script>
-     <!-- <script type="text/javascript" src="data_formatter.js"></script> Alex trying something out  -->
-     <script type ="text/javascript">
-      // for (i = 0;i < statesData["features"].length; i++) {
-      //   statesData["features"][i]["density"] = veteran_populations[i]/total_populations[i];
-      // }
+	 <script type="text/javascript" src="mass.js"></script>
+	 <script type="text/javascript" src="data.js"></script>
+	 <script type ="text/javascript">
+	 // Get data from excel sheet and add to mass.js file
+      for (i = 0;i < outlines["features"].length; i++) {
+		outlines["features"][i]["properties"]["veterans"] = data["Veteran Population"][i];
+		console.log(outlines["features"][i]["properties"]);
+	  }
 
       var geojson;
       var coordinates = [42.10,-71.68]
-	  var mymap = L.map('mapid').setView(coordinates, 8);
+	  var mymap = L.map('mapid').setView(coordinates, 9);
        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       	id: 'mapbox.light',
@@ -51,13 +53,13 @@
       }).addTo(mymap);
 
       function getColor(d) {
-		  return d > 35000 ? '#fff7fb' :
-				d > 30000 ? '#ece2f0' :
-				d > 25000  ? '#d0d1e6' :
-				d > 20000  ? '#a6bddb' :
-				d > 15000   ? '#3690c0' :
-				d > 10000   ? '#02818a' :
-				d > 5000   ? '#016450' :
+		  return d > 1200 ? '#fff7fb' :
+				d > 1000 ? '#ece2f0' :
+				d > 800  ? '#d0d1e6' :
+				d > 600  ? '#a6bddb' :
+				d > 400   ? '#3690c0' :
+				d > 200   ? '#02818a' :
+				d > 100   ? '#016450' :
 							'#FFEDA0';
 	}
 
@@ -71,7 +73,7 @@
 
 	info.update = function (props) {
 		this._div.innerHTML = '<h4>2010 Population in Area</h4>' +  (props ?
-			'<b>' + props.TOWN + '</b><br />' + props.POP2010 + ' people'
+			'<b>' + props.TOWN + '</b><br />' + props.veterans + ' veterans'
 			: 'Hover over a region');
 	};
 
@@ -84,7 +86,7 @@
 			color: 'black',
 			dashArray: '3',
 			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.POP2010)
+			fillColor: getColor(feature.properties.veterans)
 		};
 	}
 
