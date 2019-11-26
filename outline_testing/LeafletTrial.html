@@ -73,11 +73,23 @@
 		return this._div;
 	};
 
+  function split_string(string){
+    var name = string.split(/\r\n/)
+    var final_string = ""
+    for (var i = 0; i < name.length; i++){
+      final_string = final_string + name[i] +'</b><br />'
+    }
+    return final_string
+
+  }
+
 	info.update = function (props) {
-		console.log("Props: ", props);
+	//	console.log("Props: ", props);
+
     this._div.innerHTML = '<h4>Regional Information</h4>' +  (props ?
       '<b>' + props.TOWN + '</b><br />' +  '</b><br />' +'<h4>Veteran Population </h4>' + props.veterans + ' veterans'
-      +  '</b><br />' +'</b><br />'+'<h4>Veteran Service Officer </h4>' + props.vso
+      +  '</b><br />' +'</b><br />'+'<h4>Veteran Service Officer </h4>' + split_string(props.vso)
+
       : 'Hover over a region');
 	};
 
@@ -99,7 +111,7 @@
 legend.onAdd = function (mymap) {
 
 	var div = L.DomUtil.create('div', 'info legend'),
-		grades = [5000, 10000, 15000, 20000, 25000, 30000, 35000],
+		grades = [0, 200, 400, 800, 1000, 1200, 1400],
 		labels = [];
 
 	// loop through our density intervals and generate a label with a colored square for each interval
