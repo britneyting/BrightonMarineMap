@@ -6,6 +6,7 @@ var sheets = workbook.SheetNames;
 var worksheet = workbook.Sheets[sheets[0]];
 
 var cities = [];
+var contacts = [];
 var veteran_populations = [];
 var total_populations = [];
 
@@ -14,13 +15,15 @@ var data = {};
 var cell = 1;
 while (worksheet["A" + String(cell)] != undefined) {
     cities.push(worksheet["A" + String(cell)]["v"]);
-    veteran_populations.push(worksheet["B" + String(cell)]["v"]);
-    total_populations.push(worksheet["C" + String(cell)]["v"]);
+    contacts.push(worksheet["B" + String(cell)]["v"]);
+    veteran_populations.push(worksheet["C" + String(cell)]["v"]);
+    total_populations.push(worksheet["D" + String(cell)]["v"]);
     cell = cell + 1;
 };
-data[veteran_populations.shift()] = veteran_populations
-data[total_populations.shift()] = total_populations
-data[cities.shift()] = cities
+data[contacts.shift()] = contacts;
+data[veteran_populations.shift()] = veteran_populations;
+data[total_populations.shift()] = total_populations;
+data[cities.shift()] = cities;
 
 // for (i = 0; i < cities.length; i++) {
 //     map_data.push({

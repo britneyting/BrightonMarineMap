@@ -40,6 +40,7 @@
 	 // Get data from excel sheet and add to mass.js file
       for (i = 0;i < outlines["features"].length; i++) {
 		outlines["features"][i]["properties"]["veterans"] = data["Veteran Population"][i];
+		outlines["features"][i]["properties"]["vso"] = data["City VSOs"][i];
 		console.log(outlines["features"][i]["properties"]);
 	  }
 
@@ -72,6 +73,7 @@
 	};
 
 	info.update = function (props) {
+		console.log("Props: ", props);
 		this._div.innerHTML = '<h4>2010 Population in Area</h4>' +  (props ?
 			'<b>' + props.TOWN + '</b><br />' + props.veterans + ' veterans'
 			: 'Hover over a region');
