@@ -55,15 +55,17 @@
       }).addTo(mymap);
 
       function getColor(d) {
-		  return d > 1200 ? '#E9967A' :
-				d > 1000 ? '#ece2f0' :
-				d > 800  ? '#d0d1e6' :
-				d > 600  ? '#a6bddb' :
-				d > 400   ? '#3690c0' :
-				d > 200   ? '#02818a' :
-				d > 100   ? '#016450' :
-							'#FFEDA0';
+		  return d > 1200 ? '#183078' :
+				d > 1000 ? '#a81818' :
+				d > 800  ? '#f06048' :
+				d > 600  ? '#18c0ff' :
+				d > 400   ? '#f0fff0' :
+				d > 200   ? '#f0f0f0' :
+			//	d > 100   ? '#016450' :
+							'#fff0d8';
 	}
+
+  L.control.layers().addTo(mymap);
 
   var info = L.control();
 
