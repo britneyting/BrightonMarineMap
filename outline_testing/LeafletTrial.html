@@ -39,10 +39,19 @@
 	 <script type="text/javascript" src="data.js"></script>
 	 <script type ="text/javascript">
 	 // Get data from excel sheet and add to mass.js file
+	  var information = {};
+	  for (i = 0; i < data["Mass Cities"].length;i++){
+		  var city = data["Mass Cities"][i].toLowerCase().trim();
+		  var vets = data["Veteran Population"][i];
+		  var vsos = data["City VSOs"][i];
+		  information[city] = [vets, vsos];
+	  }
+	  console.log(information);
       for (i = 0;i < outlines["features"].length; i++) {
-		outlines["features"][i]["properties"]["veterans"] = data["Veteran Population"][i];
-		outlines["features"][i]["properties"]["vso"] = data["City VSOs"][i];
-		console.log(outlines["features"][i]["properties"]);
+		var current_city = outlines["features"][i]["properties"]["TOWN"].toLowerCase().trim();
+		console.log(current_city);
+		outlines["features"][i]["properties"]["veterans"] = information[current_city][0];
+		outlines["features"][i]["properties"]["vso"] = information[current_city][1];
 	  }
 
       var geojson;
@@ -55,14 +64,13 @@
       }).addTo(mymap);
 
       function getColor(d) {
-		  return d > 1200 ? '#183078' :
-				d > 1000 ? '#a81818' :
-				d > 800  ? '#f06048' :
-				d > 600  ? '#18c0ff' :
-				d > 400   ? '#f0fff0' :
-				d > 200   ? '#f0f0f0' :
-			//	d > 100   ? '#016450' :
-							'#fff0d8';
+		  return d > 1200 ? '#660000' :
+				d > 1000 ? '#990000' :
+				d > 800  ? '#cc0000' :
+				d > 600  ? '#ff0000' :
+				d > 400   ? '#cc3333' :
+				d > 200   ? '#ff6666' :
+							'#ffcccc';
 	}
 
   L.control.layers().addTo(mymap);
