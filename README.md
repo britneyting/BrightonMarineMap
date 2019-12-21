@@ -14,7 +14,7 @@ Follow [This](https://nodejs.org/en/download/) link to node's site to install.
 
 ### Downloading The Map
 
-Click the green "Clone or Download" button, download the zip file, then extract it into a folder on your desktop. Navigate to "BrightonMarineMap-master > map" then continue on with the below instructions.
+Click the green "Clone or Download" button, download the zip file, then extract it into a folder on your desktop (right click, extract all, choose the folder you created on your desktop and click extract). Next navigate to "BrightonMarineMap-master > map" and continue on with the below instructions.
 
 ### Installing
 
@@ -45,4 +45,4 @@ In order to edit the excel sheet data you just need to open the excel sheet with
 
 ### Opening the Map
 
-In order to see the actual map visualization in your browser simply open the go to the folder you downloaded from here and run the "run_program" file. This should update the map with any changes you have made to the spreadsheet and open up the map in the browser for you to see. Everytime you change something in the spreadsheet you will have to re-run this file.
+In order to see the actual map visualization in your browser simply go to the folder you downloaded (the one from here you put on your desktop) and run the "run_program" file. This should update the map with any changes you have made to the spreadsheet and open up the map in the browser for you to see. Everytime you change something in the spreadsheet you will have to re-run this file.
