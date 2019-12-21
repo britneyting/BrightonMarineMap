@@ -41,4 +41,4 @@ In order to edit the excel sheet data you just need to open the excel sheet with
 
 ### Opening the Map
 
-In order to see the actual map visualization in your browser simply open the folder containing the program and double click the file called LeafletTrial.html. This should open up a webpage in your browser showing the map reflecting your data.
+In order to see the actual map visualization in your browser simply open the go to the folder you downloaded from here and run the "run_program" file. This should update the map with any changes you have made to the spreadsheet and open up the map in the browser for you to see. Everytime you change something in the spreadsheet you will have to re-run this file.
