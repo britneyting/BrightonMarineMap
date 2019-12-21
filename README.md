@@ -12,9 +12,13 @@ To start you must first download and install node.js by going to the below link 
 
 Follow [This](https://nodejs.org/en/download/) link to node's site to install.
 
+### Downloading The Map
+
+Click the green "Clone or Download" button, download the zip file, then extract it into a folder on your desktop. Navigate to "BrightonMarineMap-master > map" then continue on with the below instructions.
+
 ### Installing
 
-After downloading and install node we will need to install a couple libraries to allow the program to run.
+After downloading and install node and the map files we will need to install a couple libraries to allow the program to run.
 
 To insall the libraries, open up the search bar on your computer and type in:
 
