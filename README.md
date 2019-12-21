@@ -14,7 +14,11 @@ Follow [This](https://nodejs.org/en/download/) link to node's site to install.
 
 ### Downloading The Map
 
-Click the green "Clone or Download" button, download the zip file, then extract it into a folder on your desktop (right click, extract all, choose the folder you created on your desktop and click extract). Next navigate to "BrightonMarineMap-master > map" and continue on with the below instructions.
+1) Create a folder on your desktop
+2) Click the green "Clone or Download" button and download the zip file
+3) Go to your downloads folder and find the file you just downloaded
+4) Extract it by right clicking, clicking on extract all, and choosing the folder you just created on your desktop then clicking extract
+5) Finally, navigate to that folder by going "Desktop => Your Folder => BrightonMarineMap-master => map" and continue with the below instructions.
 
 ### Installing
 
