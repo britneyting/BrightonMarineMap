@@ -12,9 +12,17 @@ To start you must first download and install node.js by going to the below link 
 
 Follow [This](https://nodejs.org/en/download/) link to node's site to install.
 
+### Downloading The Map
+
+1) Create a folder on your desktop
+2) Click the green "Clone or Download" button and download the zip file
+3) Go to your downloads folder and find the file you just downloaded
+4) Extract it by right clicking, clicking on extract all, and choosing the folder you just created on your desktop then clicking extract
+5) Finally, navigate to that folder by going "Desktop => Your Folder => BrightonMarineMap-master => map" and continue with the below instructions.
+
 ### Installing
 
-After downloading and install node we will need to install a couple libraries to allow the program to run.
+After downloading and install node and the map files we will need to install a couple libraries to allow the program to run.
 
 To insall the libraries, open up the search bar on your computer and type in:
 
@@ -41,4 +49,4 @@ In order to edit the excel sheet data you just need to open the excel sheet with
 
 ### Opening the Map
 
-In order to see the actual map visualization in your browser simply open the go to the folder you downloaded from here and run the "run_program" file. This should update the map with any changes you have made to the spreadsheet and open up the map in the browser for you to see. Everytime you change something in the spreadsheet you will have to re-run this file.
+In order to see the actual map visualization in your browser simply go to the folder you downloaded (the one from here you put on your desktop) and run the "run_program" file. This should update the map with any changes you have made to the spreadsheet and open up the map in the browser for you to see. Everytime you change something in the spreadsheet you will have to re-run this file.
