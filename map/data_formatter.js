@@ -1,7 +1,7 @@
 var XLSX = require('xlsx');
 var fs = require('fs');
 
-var workbook = XLSX.readFile('map_test_data.xlsx');
+var workbook = XLSX.readFile('map_data.xlsx');
 var sheets = workbook.SheetNames;
 var worksheet = workbook.Sheets[sheets[0]];
 
