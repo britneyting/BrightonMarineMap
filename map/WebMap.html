@@ -9,9 +9,13 @@
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   crossorigin=""/>
 
+  <link rel="stylesheet" href="../node_modules/leaflet-search/src/leaflet-search.css" />
+
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
   crossorigin=""></script>
+
+  <script src="../node_modules/leaflet-search/src/leaflet-search.js"></script>
 
   <style>
 		html, body {
@@ -103,7 +107,12 @@
       : 'Hover over a region');
 	};
 
-	info.addTo(mymap);
+
+
+
+
+
+  //L.control.layers().addTo(mymap);
 
   function style(feature) {
 		return {
@@ -150,7 +159,7 @@ function highlightFeature(e) {
 }
 function resetHighlight(e) {
 	geojson.resetStyle(e.target);
-	info.update();
+  info.update();
 }
 
 function zoomToFeature(e) {
@@ -167,10 +176,33 @@ function onEachFeature(feature, layer) {
 
 legend.addTo(mymap);
 
-geojson = L.geoJson(outlines,{
+var geojson = L.geoJson(outlines,{
         style:style,
         onEachFeature:onEachFeature
       }).addTo(mymap);
+
+var controlSearch = new L.Control.Search({
+      position:'topleft',
+      layer: geojson,
+      initial: false,
+      marker: false,
+      propertyName: "TOWN"
+    });
+
+    controlSearch.on('search:locationfound', function(e) {
+
+    e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+    info.update(e.target.features.properties);
+
+    	}).on('search:collapsed', function(e) {
+
+    		geojson.eachLayer(function(layer) {
+    		geojson.resetStyle(layer);
+    		});
+    	});
+
+    controlSearch.addTo(mymap)
+    	info.addTo(mymap);
      </script>
   </body>
 </html>
